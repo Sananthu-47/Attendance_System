@@ -1,5 +1,7 @@
 <?php
 include "db.php";
+include "global.php";
+
     ob_start();
     session_start();
 ?>

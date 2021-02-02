@@ -1,7 +1,7 @@
 <?php include "includes/header.php"; ?>
 
 <!-- Holds all login features in it -->
-    <div class="wrapper">
+    <div class="login-wrapper">
     <!-- Navbar for the login page -->
         <div class="login-navbar">
             <span class='text-capitalize'>Mange your college details</span>
@@ -40,7 +40,7 @@
                     <!-- Sigin button to create new teacher account -->
                     <div class="d-flex justify-content-center align-items-center my-3">
                         <span class='text-danger mx-2'>Create a teacher account</span>
-                        <button class='btn btn-primary'>Signin</button>
+                        <a href='register.php'><button class='btn btn-primary'>Signin</button></a>
                     </div><!--</sigin> -->
                 </div><!-- </login-all-fields> -->
             </div><!-- </login-card> -->
