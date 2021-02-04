@@ -86,6 +86,42 @@ body{
     box-shadow: 5px 5px 4px #575656;
 }
 
+.disappear
+{
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.danger-field
+{
+    background: rgb(242 ,201, 201);
+    color: red;
+    border-left: 5px solid red;
+}
+
+.success-field
+{
+    background: #b6eab8;
+    color: green;
+    border-left: 5px solid green;
+}
+
+.close
+{
+    position: relative;
+    right: 2%;
+    transform: translateX(-2%);
+    cursor: pointer;
+}
+
+.decoration
+{
+    text-decoration: none !important;
+}
+
+
 @media  screen and (max-width:400px)
 {
     .login-all-fields label
