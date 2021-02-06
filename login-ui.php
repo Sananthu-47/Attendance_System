@@ -23,20 +23,23 @@
                         <button id='teacher' class="btn btn-light">Teacher</button>
                     </div><!-- </role-data> -->
                     <!-- Login fields -->
-                    <div class="d-flex align-items-center my-3">
-                        <label for="id" class='px-2'>Login id:</label>
+                    <div class="d-md-flex align-items-center justify-content-around my-3">
+                        <label for="id" class='px-2 badge badge-dark d-inline'>Login id:</label>
                         <input type="text" name="id" id="login-id" placeholder="Registration id" class='px-5 py-2 input-login'>
                     </div>
                     <!-- Password field -->
-                    <div class="d-flex align-items-center my-3">
-                        <label for="id" class='px-2'>Password:</label>
+                    <div class="d-md-flex align-items-center justify-content-around my-3">
+                        <label for="id" class='px-2 badge badge-dark d-inline'>Password:</label>
                         <input type="password" name="password" id="login-password" placeholder="Password" class='px-5 py-2 input-login'>
                     </div>
                     <!-- Flex to login button and forget password -->
                     <div class="d-flex justify-content-around py-3">
-                        <input type="button" value="Login" id='login' data-role='student' class='btn btn-success input-login px-4'>
+                        <input type="button" value="Login" id='login' class='btn btn-success input-login px-4'>
                         <span class='text-primary'>Fogot password?</span>
                     </div><!-- </login button div> -->
+
+                    <div class='disappear' style='display:none'><span class='error-data'></span><i class='fa fa-times close text-secondary'></i></div>
+
                     <!-- Sigin button to create new teacher account -->
                     <div class="d-flex justify-content-center align-items-center my-3">
                         <span class='text-danger mx-2'>Create a teacher account</span>
@@ -48,17 +51,23 @@
     </div><!-- </wrappper> -->
     
     <script>
+    //Global variables
+    let role = 'student';
+    const errorField = $('.disappear');//Get the error filed of to show the pop up messages
+
     //Select the role of teacher
     $('#teacher').on('click',(e)=>{
+        e.preventDefault();
         $('#student').removeClass('selected');
         $('#teacher').addClass('selected');
-        $('#login').attr('data-role','teacher');
+        role = 'teacher';
     });
     //Select the role of student
     $('#student').on('click',(e)=>{
+        e.preventDefault();
         $('#student').addClass('selected');
         $('#teacher').removeClass('selected');
-        $('#login').attr('data-role','student');
+        role = 'student';
     });
 
     //Send an ajax request to login.php to verify the user
@@ -66,7 +75,6 @@ $("#login").on('click',function(e){
     e.preventDefault();
     let reg_id = $('#login-id').val();
     let password = $('#login-password').val();
-    let role = $(this).data('role');
     if(reg_id !== '' && password !== '' && role !== '')
     {
         $.ajax({
@@ -75,17 +83,27 @@ $("#login").on('click',function(e){
         data : {reg_id,password,role},
         success : function(data)
         {
-            if(data !== '')
+            if(data === 'Entered wrong details')
             {
-                console.log(data);
+                $('.error-data').html(data);
+                errorField.addClass('danger-field');//Add red bg and color
+                errorField.show();
             }else{
-                alert("You have entered wrong details");
+                console.log(data); //Change this
+                errorField.hide();
             }
         }
         });
     }else{
-        alert('Fill all the fields');
+        $('.error-data').html('Fill all fields properly');
+        errorField.addClass('danger-field');//Add red bg and color
+        errorField.show();
     }
+});
+
+//To close the pop up of error
+$('.close').on('click',()=>{
+    $('.disappear').hide();
 });
     </script>
 

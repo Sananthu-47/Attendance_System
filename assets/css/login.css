@@ -72,16 +72,11 @@ body{
     color: #fff;
 }
 
-.login-all-fields label
-{
-    width: 120px;
-}
-
 .register-card
 {
     margin: auto;
-    min-width: 450px;
-    max-width: 600px;
+    min-width: 500px;
+    max-width: 700px;
     background-color: #E0E0E0;
     box-shadow: 5px 5px 4px #575656;
 }
