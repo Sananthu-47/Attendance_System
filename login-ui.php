@@ -88,9 +88,10 @@ $("#login").on('click',function(e){
                 $('.error-data').html(data);
                 errorField.addClass('danger-field');//Add red bg and color
                 errorField.show();
-            }else{
-                console.log(data); //Change this
+            }
+            else{
                 errorField.hide();
+                window.location.href = 'index.php';
             }
         }
         });

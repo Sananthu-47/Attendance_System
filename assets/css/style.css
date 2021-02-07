@@ -1,0 +1,71 @@
+body{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root
+{
+    --navbar-bg: #070B2D;
+    --body-bg: #7EB3AD;
+    --primary: #DA1C3F;
+}
+
+#navbar
+{
+    position: absolute;
+    left: 2%;
+    top: 10px;
+    cursor: pointer;
+}
+
+#side-nav
+{
+    width: 250px;
+    height: 100vh;
+    overflow: none;
+    background: var(--primary);
+    position: fixed;
+    top: 40px;
+    z-index: 5;
+}
+
+.app
+{
+    position: relative;
+    top: 40px;
+    background: var(--body-bg);
+    min-height: calc(100vh - 40px);
+}
+
+.navbar-side
+{
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    background-color: rgba(240, 230, 230, 0.6);
+    border: 2px solid rgba(247, 1, 54, 0.4);
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.navbar-side:hover
+{
+    font-size: 26px;
+    color: azure;
+    background: var(--primary);
+    box-shadow: inset 2px 2px 10px rgb(243, 165, 185);
+}
+
+.active-nav
+{
+    background: var(--primary);
+    border: 2px solid rgba(240, 230, 230, 0.8);
+}
+
+@media  screen and (max-width:400px)
+{
+      
+}

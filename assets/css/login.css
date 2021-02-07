@@ -23,8 +23,12 @@ body{
     padding: 5px;
     background-color: var(--navbar-bg);
     color: #fff;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 5;
 }
 
 .login-body
@@ -74,6 +78,8 @@ body{
 
 .register-card
 {
+    position: relative;
+    top: 40px;
     margin: auto;
     min-width: 500px;
     max-width: 700px;
