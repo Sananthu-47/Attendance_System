@@ -20,15 +20,18 @@ body{
 
 .login-navbar
 {
-    padding: 5px;
+    height: 60px;
     background-color: var(--navbar-bg);
     color: #fff;
-    font-size: 20px;
+    font-size: 24px;
     text-align: center;
     position: fixed;
     top: 0;
     width: 100vw;
     z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-body
@@ -44,11 +47,8 @@ body{
 .login-card
 {
     min-width: 320px;
-    min-height: 450px;
     width: 400px;
-    height: 450px;
     max-width: 600px;
-    max-height: 700px;
     background-color: #E0E0E0;
     box-shadow: 5px 5px 4px #575656;
 }
@@ -79,7 +79,7 @@ body{
 .register-card
 {
     position: relative;
-    top: 40px;
+    top: 60px;
     margin: auto;
     min-width: 500px;
     max-width: 700px;
@@ -139,4 +139,9 @@ body{
         {
             min-width: 320px;
         }
+
+    .login-navbar
+    {
+        font-size: 16px;
+    }
 }

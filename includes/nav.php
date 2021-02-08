@@ -1,6 +1,15 @@
 <div class="login-navbar">
-<i class="fa fa-bars" id='navbar' aria-hidden="true"></i>
-<span class='text-capitalize'>Mange your college details</span>
+    <div class='col-1 p-0'><i class="fa fa-bars" id='navbar' aria-hidden="true"></i></div>
+    <div class='col-9 p-0'><span class='text-capitalize'>Mange your college details</span></div>
+    <div class='col-2 p-0 d-flex justify-content-end mr-3'>
+    <a href="includes/logout.php"><i class="fa fa-sign-out mx-2 text-white"></i></a>
+    <a href="index.php" class='remove-decoration-of-anchor'><div style='background-color:<?php printf( "#%06X\n", mt_rand( 0x200000, 0x900000 )); ?>' class='profile-small text-white text-uppercase'>
+    <?php $username = $user->get_data_by_id('username',$logged_in_id); 
+        foreach (explode(' ',$username) as $value) {
+            echo $value[0];
+        }
+    ?></div></a>
+    </div>
 </div>
 
 <div id="side-nav" style='display:none;'>

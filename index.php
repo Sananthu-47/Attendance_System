@@ -7,11 +7,13 @@ if(!isset($_SESSION['logged_in_id']))
 ?>
 
 <!-- body -->
-<?php include "includes/nav.php"; ?>
-<?php include 'Users/User.php' ?>
+
+<?php include 'Users/User.php';
+$user = new User();
+include "includes/nav.php"; ?>
 
 <div class="app">
-    <?php  $user = new User();
+    <?php  
 echo $user->get_data_by_id('username',$logged_in_id); ?>
 </div>
 

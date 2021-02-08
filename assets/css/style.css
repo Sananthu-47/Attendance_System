@@ -13,10 +13,12 @@ body{
 
 #navbar
 {
-    position: absolute;
-    left: 2%;
-    top: 10px;
     cursor: pointer;
+}
+
+.remove-decoration-of-anchor
+{
+    text-decoration: none !important;
 }
 
 #side-nav
@@ -26,16 +28,16 @@ body{
     overflow: none;
     background: var(--primary);
     position: fixed;
-    top: 40px;
+    top: 60px;
     z-index: 5;
 }
 
 .app
 {
     position: relative;
-    top: 40px;
+    top: 60px;
     background: var(--body-bg);
-    min-height: calc(100vh - 40px);
+    min-height: calc(100vh - 60px);
 }
 
 .navbar-side
@@ -65,7 +67,20 @@ body{
     border: 2px solid rgba(240, 230, 230, 0.8);
 }
 
+.profile-small
+{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #DA1C3F;
+    -webkit-text-stroke: .5px rgb(24, 22, 22);
+}
+
 @media  screen and (max-width:400px)
 {
-      
+    .profile-small
+    {
+        width: 25px;
+        height: 25px;
+    }
 }

@@ -102,6 +102,13 @@ $("#login").on('click',function(e){
     }
 });
 
+$(document).on('keyup',(e)=>{
+    if(e.keyCode === 13)
+    {
+        $('#login').click();
+    }
+});
+
 //To close the pop up of error
 $('.close').on('click',()=>{
     $('.disappear').hide();
