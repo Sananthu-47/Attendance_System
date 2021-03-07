@@ -8,7 +8,7 @@ if(!isset($_SESSION['logged_in_id']))
 
 <!-- body -->
 
-<?php include 'Users/User.php';
+<?php include 'Classes/User.php';
 $user = new User();
 include "includes/nav.php"; ?>
 
