@@ -1,6 +1,5 @@
 <?php
 include "../includes/db.php";
-include "../global.php";
 
 $reg_id = $_POST['regId'];
 $username = $_POST['username'];
