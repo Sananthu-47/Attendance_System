@@ -48,7 +48,7 @@
                              $result = mysqli_query($connection,$query); 
                             while($row = mysqli_fetch_assoc($result))
                             {
-                                echo "<option>".$row['name']."</option>";
+                                echo "<option value='".$row['id']."'>".$row['name']."</option>";
                             }
                         ?>
                         </select>
@@ -78,7 +78,7 @@
                              $result = mysqli_query($connection,$query); 
                             while($row = mysqli_fetch_assoc($result))
                             {
-                                echo "<option>".$row['branch']."</option>";
+                                echo "<option value='".$row['id']."'>".$row['branch']."</option>";
                             }
                         ?>
                         </select>

@@ -6,5 +6,5 @@ $branch = $_POST['branch'];
     $result = mysqli_query($connection,$query); 
         while($row = mysqli_fetch_assoc($result))
         {
-        echo "<option>".$row['name']."</option>";
+        echo "<option value='".$row['id']."'>".$row['name']."</option>";
         }
