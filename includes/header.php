@@ -20,3 +20,7 @@ include "db.php";
     <title>Attendance system</title>
 </head>
 <body>
+<?php
+include 'Classes/User.php';
+$user = new User();
+?>

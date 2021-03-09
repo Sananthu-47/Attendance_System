@@ -21,6 +21,7 @@
         <a href='#' class="navbar-side list-group-item-action">Calender</a>
         <a href='#' class="navbar-side list-group-item-action">Marks</a>
         <a href='#' class="navbar-side list-group-item-action">Time table</a>
+        <a href='update-institute.php' class="navbar-side list-group-item-action">Institute details</a>
     </div>
 </div>
 

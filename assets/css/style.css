@@ -9,12 +9,20 @@ body{
     --navbar-bg: #070B2D;
     --body-bg: #7EB3AD;
     --primary: #DA1C3F;
+    --bg-light-lime: #A9D3B5;
 }
 
 
 .bg-primary-color
 {
     background: var(--primary);
+}
+
+.self-align
+{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .login-wrapper
@@ -199,9 +207,25 @@ body{
     -webkit-text-stroke: .5px rgb(24, 22, 22);
 }
 
+.notifications
+{
+    background: var(--bg-light-lime);
+    max-width: 600px;
+    height: auto;
+    transform: translateY(10%);
+}
+
 button:disabled
 {
     cursor: not-allowed;
+}
+
+
+#institute-form-update
+{
+    min-width: 320px;
+    width: 1024px;
+    max-width: 1400px;
 }
 
 

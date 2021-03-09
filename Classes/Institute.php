@@ -3,6 +3,14 @@
 class Institute{
     public $user_logged_in_as;
 
+    function get_institute_details($id)
+    {
+        global $connection;
+        $query = "SELECT * FROM institute WHERE id = '$id'";
+        $result = mysqli_query($connection,$query); 
+        return mysqli_fetch_assoc($result);
+    }
+
     function get_all_branch()
     {
         global $connection;
