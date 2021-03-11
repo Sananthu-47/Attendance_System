@@ -35,7 +35,7 @@ include "Classes/Institute.php";
             <div class="my-3 form-group">
                 <div class="bg-primary-color p-2 text-white">Add your institute offered branches</div>
                     <div class="d-flex justify-content-center align-items-center mx-auto my-2 col-lg-6 col-sm-12">
-                    <select id="branch" class='form-control input-login'>
+                    <select id="branch" class='form-control input-login' data-college-id='<?php echo $college_id; ?>'>
                                 <option value="0">Add branch</option>
                                 <?php 
                                 $institute->get_all_branch();
@@ -45,11 +45,11 @@ include "Classes/Institute.php";
                     <button class='btn btn-primary'>New</button>
                     </div>
 
-                    <div class="all-branch col-lg-5 col-10 mx-auto">
+                    <div class="all-branch col-lg-5 col-12 mx-auto">
                         <header class='bg-dark text-light p-1'>Selected branches</header>
                             <ul class="list-group" id='selected-branches'>
                             <?php 
-                                $institute->get_all_selected_branch(0);
+                                $institute->get_all_selected_branch($college_id);
                             ?>
                             </ul>
                     </div>
@@ -61,7 +61,6 @@ include "Classes/Institute.php";
 
 
 <script>
-const selected_branches = [];
 
     $('#branch').on('change',()=>{
         $("#add-branch").prop( "disabled", false );
@@ -70,17 +69,32 @@ const selected_branches = [];
     //Add the branch to the institute
     $("#add-branch").on('click',function(e){
         e.preventDefault();
-        let branch = $('#branch').val();
-        
-        if(!selected_branches.includes(String(branch)) && branch != 0)
-        {
-        selected_branches.push(branch);
-        $('#selected-branches').append(`<li class='list-group-item'>${branch}</li>`);
-        $('#branch').val(0);
-        $("#add-branch").prop( "disabled", true );
-        }else{
-            alert('Alredy added');
-        }
+let branch = $('#branch').val();
+let college_id = $('#branch').data('college-id');
+        $.ajax({
+             url : "process/add-branch.php",
+             type : "POST",
+             data : {branch,college_id},
+             success : function(data)
+                 {
+                     if(data == 0)
+                     {
+                     alert("Already added");
+                     }else{
+                        $('#selected-branches').append(data);
+                        $('#branch').val(0);
+                        $("#add-branch").prop( "disabled", true );
+                     }
+                 }
+             });
+    });
+
+
+    //Delete selected branch
+    $(document).on('click','.delete-branch',(e)=>{
+        // alert($(this).data('delete-branch'));
+        let id = $(this).data('delete-branch');
+        $(this).html('h');
     });
 </script>
 

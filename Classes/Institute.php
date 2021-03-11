@@ -18,7 +18,7 @@ class Institute{
         $result = mysqli_query($connection,$query); 
         while($row = mysqli_fetch_assoc($result))
         {
-            echo "<option>".$row['branch']."</option>";
+            echo "<option value='".$row['id']."'>".$row['branch']."</option>";
         }
     }
 
@@ -40,12 +40,12 @@ class Institute{
         if($id !== null)
         {
         global $connection;
-        $query = "SELECT * FROM branch_selected WHERE id='$id'";
+        $query = "SELECT * FROM branch_selected WHERE institute='$id'";
         $result = mysqli_query($connection,$query);
         while($row = mysqli_fetch_assoc($result))
         {
-            $branch_name = $this->get_branch_by_id($row['id']);
-            echo "<li class='list-group-item'>".$branch_name['branch']."</li>";
+            $branch_name = $this->get_branch_by_id($row['branch']);
+            echo "<li class='list-group-item d-flex justify-content-between align-items-center h5'>".$branch_name['branch']."<i class='fa fa-trash text-danger fa-lg delete-branch' data-delete-branch='".$row['id']."'></i></li>";
         }
     }
     }
