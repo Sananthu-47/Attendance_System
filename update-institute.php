@@ -42,8 +42,15 @@ include "Classes/Institute.php";
                             ?>
                     </select>
                     <button class='btn btn-success mx-2' id='add-branch' disabled>Add</button>
-                    <button class='btn btn-primary'>New</button>
+                    <button class='btn btn-warning badge' id='not-in-branch'>Not in list?</button>
                     </div>
+
+                <div class='disappear success-field' style='display:none'><span class='error-data'>New branch created</span><i class='fa fa-times close text-secondary'></i></div>
+
+                        <div class="my-2 px-5 w-100 justify-content-center d-none" id='new-branch-div'>
+                            <input type="text" id="new-branch" placeholder='Add new branch'>
+                            <button class='btn btn-primary mx-2' id='create-branch'>Create</button>
+                        </div>
 
                     <div class="all-branch col-lg-5 col-12 mx-auto">
                         <header class='bg-dark text-light p-1'>Selected branches</header>
@@ -58,7 +65,6 @@ include "Classes/Institute.php";
     </form>
     </div><!---</app>-->
 </div><!-- </wrappper> -->
-
 
 <script>
 
@@ -89,12 +95,62 @@ let college_id = $('#branch').data('college-id');
              });
     });
 
-
     //Delete selected branch
-    $(document).on('click','.delete-branch',(e)=>{
-        // alert($(this).data('delete-branch'));
+    $(document).on('click','.delete-branch',function(){
+        let delete_btn = $(this);
         let id = $(this).data('delete-branch');
-        $(this).html('h');
+        $.ajax({
+             url : "process/delete-branch.php",
+             type : "POST",
+             data : {id},
+             success : function(data)
+                 {
+                     if(data == 1)
+                     {
+                        delete_btn.parent().remove();
+                     }else{
+                     alert(data);
+                     }
+                 }
+             });
+    });
+
+    //Toggle branch button
+    $('#not-in-branch').on('click',function(e){
+        e.preventDefault();
+        let newBranchDiv = $('#new-branch-div');
+        if(newBranchDiv.hasClass("d-none"))
+        {
+            newBranchDiv.removeClass('d-none');
+            newBranchDiv.addClass('d-flex');
+            $('#new-branch').focus();
+        }else{
+            newBranchDiv.removeClass('d-flex');
+            newBranchDiv.addClass('d-none');
+        }
+    });
+
+    //Add new branch to db
+    $('#create-branch').on('click',function(e){
+        e.preventDefault();
+        let new_branch = $('#new-branch').val();
+        $.ajax({
+             url : "process/create-branch.php",
+             type : "POST",
+             data : {new_branch},
+             success : function(data)
+                 {
+                    $('#branch').append(data);
+                    $('#new-branch').val('');
+                    $('.disappear').show();
+                    $('.disappear').delay(4000).fadeOut(500); 
+                 }
+             });
+    });
+
+    //To close the pop up of error
+    $('.close').on('click',()=>{
+    $('.disappear').hide();
     });
 </script>
 
