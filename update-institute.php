@@ -1,5 +1,6 @@
 <?php include "includes/header.php"; ?>
 
+
 <!-- Holds all login features in it -->
 <div class="login-wrapper">
 
@@ -33,7 +34,7 @@ include "Classes/Institute.php";
 
             <!-- Add branches -->
             <div class="my-3 form-group" id='institute-detail'>
-                <?php echo $institute->institute_branch_department('branch',$college_id); ?>
+                <?php echo $institute->institute_branch_department('branch',$college_id,0);?>
             </div><!--</institute-detail>-->
 
     </form>
@@ -41,6 +42,5 @@ include "Classes/Institute.php";
 </div><!-- </wrappper> -->
 
 <script src='assets/js/update-institute.js'></script>
-
 
 

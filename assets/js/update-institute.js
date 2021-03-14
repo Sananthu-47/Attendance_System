@@ -90,17 +90,22 @@ $('.close').on('click',()=>{
 $('.disappear').hide();
 });
 
-// 
-$(document).on('click','.go-add-department',function(e){
-    e.preventDefault();
-    let branch_id = $(this).data('add-department');
-    $.ajax({
-         url : "process/department-ui.php",
-         type : "POST",
-         data : {branch_id},
-         success : function(data)
-             {
-                $('#institute-detail').html(data);
-             }
-         });
-});
+    // Go to add the departments for the each branches
+    $(document).on('click','.go-add-department',function(e){
+        e.preventDefault();
+        let branch_id = $(this).data('add-department');
+        let college_id = $(this).data('college-id');
+        let type = $(this).data('type');
+        
+        $.ajax({
+                url : "process/branch-department.php",
+                type : "POST",
+                data : {branch_id,college_id,type},
+                success : function(data)
+                    {
+                    $('#institute-detail').html(data);
+                    }
+                });
+    });
+
+ 
