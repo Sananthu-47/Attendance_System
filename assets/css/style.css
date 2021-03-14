@@ -237,6 +237,23 @@ button:disabled
     cursor: pointer;
 }
 
+.go-add-department
+{
+    padding: 6px 6px;
+    box-shadow: 0.5px -0.5px 1px #a1a1a1,
+                -0.5px 0.5px 1px #a1a1a1;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#new-branch-div
+{
+    width: 300px;
+    max-width: 600px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 @media  screen and (max-width:780px)
 {
