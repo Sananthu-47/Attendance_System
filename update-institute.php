@@ -8,9 +8,9 @@
 include "Classes/Institute.php";
  $institute = new Institute();?>
 
-<div class="app d-flex justify-content-center align-items-center">
+<div class="app d-flex flex-column justify-content-center align-items-center">
     <form class='d-flex flex-column justify-content-center bg-white p-3' id='institute-form-update'>
-    <div class="bg-primary-color p-2 my-2 text-white">Your institute details</div>
+        <div class="bg-primary-color p-2 my-2 text-white">Your institute details</div>
             <!-- Institute name -->
             <div class="my-3 form-group">
                 <label for="full-name" class='mx-2 badge badge-dark d-inline'>Institute name:</label>
@@ -31,13 +31,15 @@ include "Classes/Institute.php";
                 <label for="location" class='mx-2 badge badge-dark d-inline'>Location:</label>
                 <input type="text" name="location" id="location" placeholder="Location" class='form-control m-1 border border-dark' value="<?php echo $institute_detail['location']; ?>">
             </div>
-
+    </form><!-- institute-form-update -->
+        <!-- Holds all department and branch details -->
+        <div class="bg-white p-3 branch-department-div">
             <!-- Add branches -->
             <div class="my-3 form-group" id='institute-detail'>
-                <?php echo $institute->institute_branch_department('branch',$college_id,0);?>
+                        <?php echo $institute->institute_branch_department('branch',$college_id,0);?>
             </div><!--</institute-detail>-->
+        </div><!--</branch-department-div>-->
 
-    </form>
     </div><!---</app>-->
 </div><!-- </wrappper> -->
 

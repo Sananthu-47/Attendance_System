@@ -4,7 +4,7 @@
     <div class="login-wrapper">
     <!-- Navbar for the login page -->
         <div class="login-navbar">
-            <span class='text-capitalize'>Mange your college details</span>
+            <span class='text-capitalize'>Manage your college details</span>
         </div>
     <!-- Login body holds all the elments in it -->
         <div class="main-body d-flex justify-content-center align-items-center">
@@ -35,7 +35,7 @@
                     <!-- Flex to login button and forget password -->
                     <div class="d-flex justify-content-around py-3">
                         <input type="button" value="Login" id='login' class='btn btn-success input-login px-4'>
-                        <span class='text-primary'>Fogot password?</span>
+                        <span class='text-primary'>Forgot password?</span>
                     </div><!-- </login button div> -->
 
                     <div class='disappear' style='display:none'><span class='error-data'></span><i class='fa fa-times close text-secondary'></i></div>

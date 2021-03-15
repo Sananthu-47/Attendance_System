@@ -4,7 +4,7 @@
     <div class="login-wrapper">
         <!-- Navbar for the register page -->
         <div class="login-navbar">
-            <span class='text-capitalize'>Mange your college details</span>
+            <span class='text-capitalize'>Manage your college details</span>
         </div>
         <!-- Login body holds all the elments in it -->
         <div class="main-body d-flex justify-content-center align-items-center"">
@@ -73,14 +73,7 @@
                         <label for="branch" class='mx-2 badge badge-dark d-inline'>Branch:</label>
                         <select id="branch" class='form-control input-login'>
                             <option value="0">Select your branch</option>
-                        <?php 
-                             $query = "SELECT * FROM branch";
-                             $result = mysqli_query($connection,$query); 
-                            while($row = mysqli_fetch_assoc($result))
-                            {
-                                echo "<option value='".$row['id']."'>".$row['branch']."</option>";
-                            }
-                        ?>
+                            <option value="0" disabled>Select your institute first</option>
                         </select>
                     </div>
                     <!-- Department -->
@@ -88,6 +81,7 @@
                         <label for="department" class='mx-2 badge badge-dark d-inline'>Department:</label>
                         <select id="department" class='form-control input-login'>
                             <option value="0">Select your department</option>
+                            <option value="0" disabled>Select your branch first</option>
                         </select>
                     </div>
                     <!-- Password field -->

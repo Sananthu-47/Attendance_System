@@ -1,15 +1,44 @@
  //Global variables
  let role = 'student';
 
+ //Change branch on basis of institute
+ $('#institute').on('change',function(){
+    let institute = $(this).val();
+    if($(this).val() == '0')
+    {
+        $('#branch').html( "<option value='0'>Select your branch</option><option value='0' disabled>Select your institute first</option>");
+        $('#department').html( "<option value='0'>Select your department</option><option value='0' disabled>Select your branch first</option>");
+    }else{
+    $.ajax({
+        url : "process/get-branch.php",
+        type : "POST",
+        data : {institute},
+        success : function(data)
+            {
+                if(data !== '')
+                {
+                    $('#branch').html( "<option value='0'>Select your branch</option>"+data);
+                    $('#branch').data('college-id',institute);
+                }else{
+                    $('#branch').html( "<option value='0'>Select your branch</option>");
+                }
+            }
+        });
+    }
+});
+
  //Change branch and get department on basis of branch
-     $('#branch').on('change',()=>{
-         if($('#branch').val() !== '0')
-         {
-             let branch = $('#branch').val();
+     $('#branch').on('change',function(){
+             let branch = $(this).val();
+             let institute = $(this).data('college-id');
+             if($(this).val() == '0')
+            {
+                $('#department').html( "<option value='0'>Select your department</option><option value='0' disabled>Select your branch first</option>");
+            }else{
          $.ajax({
              url : "process/get-department.php",
              type : "POST",
-             data : {branch},
+             data : {branch,institute},
              success : function(data)
                  {
                      if(data !== '')
@@ -20,7 +49,7 @@
                      }
                  }
              });
-         }
+            }
      });
  
  // Check for confirm password

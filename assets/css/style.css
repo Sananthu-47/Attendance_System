@@ -200,8 +200,8 @@ body{
 
 .profile-small
 {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #DA1C3F;
     -webkit-text-stroke: .5px rgb(24, 22, 22);
@@ -221,11 +221,9 @@ button:disabled
 }
 
 
-#institute-form-update
+#institute-form-update , .branch-department-div
 {
-    min-width: 320px;
-    width: 1024px;
-    max-width: 1400px;
+    width: 60%;
 }
 
 .delete-branch , .delete-department
@@ -261,6 +259,11 @@ button:disabled
     {
         width: 100%;
     }
+
+    #institute-form-update , .branch-department-div
+    {
+        width: 70%;
+    }
 }
 
 @media  screen and (max-width:400px)
@@ -293,7 +296,13 @@ button:disabled
 
     .profile-small
     {
-        width: 25px;
-        height: 25px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+    }
+
+    #institute-form-update , .branch-department-div
+    {
+        width: 100%;
     }
 }
