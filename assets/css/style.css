@@ -228,7 +228,7 @@ button:disabled
     max-width: 1400px;
 }
 
-.delete-branch
+.delete-branch , .delete-department
 {
     padding: 6px 4px;
     box-shadow: 1px -1px 2px #5e5e5e,
@@ -246,7 +246,7 @@ button:disabled
     cursor: pointer;
 }
 
-#new-branch-div
+#new-branch-div , #new-department-div
 {
     width: 300px;
     max-width: 600px;

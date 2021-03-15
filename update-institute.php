@@ -41,6 +41,5 @@ include "Classes/Institute.php";
     </div><!---</app>-->
 </div><!-- </wrappper> -->
 
-<script src='assets/js/update-institute.js'></script>
 
 

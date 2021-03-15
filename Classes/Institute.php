@@ -71,6 +71,10 @@ class Institute{
         $output = '';
         $query = "SELECT * FROM branch_selected WHERE institute='$id'";
         $result = mysqli_query($connection,$query);
+        if(mysqli_num_rows($result)<1)
+        {
+            return "<li class='list-group-item text-center'><span>No branch selected yet</span></li>";
+        }
         while($row = mysqli_fetch_assoc($result))
         {
             $branch_name = $this->get_branch_by_id($row['branch']);
@@ -88,6 +92,10 @@ class Institute{
         $output = '';
         $query = "SELECT * FROM department_selected WHERE institute='$college_id' AND branch='$branch_id'";
         $result = mysqli_query($connection,$query);
+        if(mysqli_num_rows($result)<1)
+        {
+            return "<li class='list-group-item text-center'><span>No department selected yet</span></li>";
+        }
         while($row = mysqli_fetch_assoc($result))
         {
             $department_name = $this->get_department_by_id($row['department']);
@@ -141,7 +149,9 @@ class Institute{
                             <ul class='list-group' id='selected-branches'>";
                     $output.=$selected_branch;
                     $output.="</ul>
-                    </div>";
+                    </div>
+                    <script src='assets/js/institute-branch-details.js'></script>
+                    ";
         }else if($type == 'department')
         {
         $all_department = $this->get_all_departments($branch_id);
@@ -162,7 +172,7 @@ class Institute{
                         <div class='my-2 justify-content-center d-none' id='new-department-div'>
                             <input type='text' id='new-department' class='my-2' placeholder='Add new department'>
                             <input type='text' id='new-department-full-form' placeholder='Full form'>
-                            <button class='btn btn-primary mx-5 my-2' id='create-department'>Create</button>
+                            <button class='btn btn-primary mx-5 my-2' id='create-department' data-branch-id='".$branch_id."'>Create</button>
                         </div>
 
                     <div class='all-branch col-lg-5 col-12 mx-auto'>
