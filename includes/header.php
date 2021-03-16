@@ -5,7 +5,10 @@ include "db.php";
     session_start();
     if(isset($_SESSION['logged_in_id']))
     {
-    $logged_in_id = $_SESSION['logged_in_id'];
+        include 'Classes/User.php';
+        $user = new User();
+        $logged_in_id = $_SESSION['logged_in_id'];
+        $institute_id = $user->get_data_by_id('institute',$logged_in_id);
     }
 ?>
 <!DOCTYPE html>
@@ -20,7 +23,3 @@ include "db.php";
     <title>Attendance system</title>
 </head>
 <body>
-<?php
-include 'Classes/User.php';
-$user = new User();
-?>

@@ -14,7 +14,7 @@
 
 <div id="side-nav" style='display:none;'>
 <!-- <div id="side-nav"> -->
-    <div class='list-group'>
+    <div class='list-group' id='all-nav'>
         <a href='index.php' class="navbar-side list-group-item-action active-nav">Home</a>
         <?php 
         if($user->get_data_by_id('role',$logged_in_id) == 'teacher')
@@ -22,6 +22,12 @@
             echo "<a href='register.php' class='navbar-side list-group-item-action'>Add student</a>";
         }?>
         <a href='#' class="navbar-side list-group-item-action">Attendance</a>
+        <?php 
+        if($user->get_data_by_id('role',$logged_in_id) == 'teacher')
+        {
+        echo "<a href='all-students.php' class='navbar-side list-group-item-action'>All students</a>";
+        }
+        ?>
         <a href='#' class="navbar-side list-group-item-action">Calender</a>
         <a href='#' class="navbar-side list-group-item-action">Marks</a>
         <a href='#' class="navbar-side list-group-item-action">Time table</a>
@@ -38,4 +44,17 @@
     $(document).on('click','#navbar',(e)=>{
         $('#side-nav').toggle();
     });
+
+    $(document).ready(function() {
+	var pathname = window.location.pathname;
+    for(let i=0;i<$('#all-nav').children().length;i++)
+    {
+        if($('#all-nav').children()[i].href==="http://localhost"+pathname)
+        {
+            $('#all-nav').children()[i].classList.add('active-nav')
+        }else if($('#all-nav').children()[i].classList.contains('active-nav')){
+           $('#all-nav').children()[i].classList.remove('active-nav');
+        }
+    }
+});
 </script>

@@ -35,13 +35,45 @@ include "Classes/Institute.php";
         <!-- Holds all department and branch details -->
         <div class="bg-white p-3 branch-department-div">
             <!-- Add branches -->
-            <div class="my-3 form-group" id='institute-detail'>
+            <div class="my-3" id='branch-department-details'>
                         <?php echo $institute->institute_branch_department('branch',$college_id,0);?>
-            </div><!--</institute-detail>-->
+            </div><!--</branch-department-details>-->
+            <!-- Add subjects -->
+            <div class="my-3" id='subject-details'>
+            <div class='bg-primary-color p-2 text-white'>Manage subjects offered</div>
+            <div class='d-md-flex justify-content-center align-items-center mx-auto my-2 col-lg-6 col-sm-12'>
+                <select id='branch-subject' class='form-control input-login'>
+                <option value='0'>Branch</option>
+                <?php 
+                    $query = "SELECT * FROM branch_selected WHERE institute = '$institute_id'";
+                    $result = mysqli_query($connection,$query); 
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        echo "<option value='".$row['id']."'>".$institute->get_branch_by_id($row['branch'])['branch']."</option>";
+                    } 
+                ?>
+                </select>
+                <select id='class-subject' class='form-control input-login'>
+                <option value='0'>Class</option>
+                <?php
+                    $query = "SELECT * FROM class";
+                    $result = mysqli_query($connection,$query); 
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                        echo "<option value='".$row['id']."'>".$row['class']."</option>";
+                    } 
+                ?>
+                </select>
+                <select id='department-subject' class='form-control input-login'>
+                <option value='0'>Department</option>
+                </select>
+                <button class='btn btn-primary mx-2' id='view-class' disabled>View</button>
+            </div>
+            </div><!--</subject-details>-->
         </div><!--</branch-department-div>-->
 
     </div><!---</app>-->
 </div><!-- </wrappper> -->
 
-
+<?php include "includes/fotter.php"; ?>
 

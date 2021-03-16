@@ -103,7 +103,7 @@ $('.disappear').hide();
                 data : {branch_id,college_id,type},
                 success : function(data)
                     {
-                    $('#institute-detail').html(data);
+                    $('#branch-department-details').html(data);
                     }
                 });
     });

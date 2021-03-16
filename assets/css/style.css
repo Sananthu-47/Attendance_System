@@ -264,6 +264,13 @@ button:disabled
     {
         width: 70%;
     }
+
+    #view-class
+    {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 @media  screen and (max-width:400px)
